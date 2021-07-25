@@ -24,6 +24,8 @@
         "html": "ignore",
         "explicitSpread": "ignore"
       }
-    ]
+    ],
+    "import/extensions": [2, "never"],
+    "no-use-before-define": "off"
   }
 }
