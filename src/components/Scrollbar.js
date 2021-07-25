@@ -46,6 +46,7 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
 
 Scrollbar.propTypes = {
   children: PropTypes.node.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
   sx: PropTypes.object,
 };
 

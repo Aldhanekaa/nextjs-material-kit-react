@@ -1,1 +1,2 @@
-export { default as BaseOptionChart } from './BaseOptionChart';
+// eslint-disable-next-line import/prefer-default-export
+export { default as BaseOptionChart } from "./BaseOptionChart";

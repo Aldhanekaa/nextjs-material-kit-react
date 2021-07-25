@@ -1,13 +1,20 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // material
-import { Box } from '@material-ui/core';
+import { Box } from "@material-ui/core";
 
 // ----------------------------------------------------------------------
 
 Logo.propTypes = {
-  sx: PropTypes.object
+  // eslint-disable-next-line react/forbid-prop-types
+  sx: PropTypes.object,
 };
 
 export default function Logo({ sx }) {
-  return <Box component="img" src="/static/logo.svg" sx={{ width: 40, height: 40, ...sx }} />;
+  return (
+    <Box
+      component="img"
+      src="/static/logo.svg"
+      sx={{ width: 40, height: 40, ...sx }}
+    />
+  );
 }

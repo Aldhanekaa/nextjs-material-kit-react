@@ -25,7 +25,12 @@
         "explicitSpread": "ignore"
       }
     ],
-    "import/extensions": [2, "never"],
-    "no-use-before-define": "off"
+    "import/extensions": [1, "never"],
+    "no-use-before-define": "off",
+    "react/require-default-props": [
+      1,
+      { "forbidDefaultForRequired": true, "ignoreFunctionalComponents": true }
+    ],
+    "react/forbid-prop-types": [1]
   }
 }

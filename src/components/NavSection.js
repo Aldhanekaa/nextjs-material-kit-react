@@ -1,13 +1,13 @@
-import NextLink from 'next/link';
-import { useRouter } from 'next/router';
+import NextLink from "next/link";
+// import { useRouter } from "next/router";
 
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-import { Icon } from '@iconify/react';
-import arrowIosForwardFill from '@iconify/icons-eva/arrow-ios-forward-fill';
-import arrowIosDownwardFill from '@iconify/icons-eva/arrow-ios-downward-fill';
+import { useState } from "react";
+import PropTypes from "prop-types";
+import { Icon } from "@iconify/react";
+import arrowIosForwardFill from "@iconify/icons-eva/arrow-ios-forward-fill";
+import arrowIosDownwardFill from "@iconify/icons-eva/arrow-ios-downward-fill";
 // material
-import { alpha, useTheme, styled } from '@material-ui/core/styles';
+import { alpha, useTheme, styled } from "@material-ui/core/styles";
 import {
   Box,
   List,
@@ -15,7 +15,7 @@ import {
   Collapse,
   ListItemText,
   ListItemIcon,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 // ----------------------------------------------------------------------
 
@@ -24,19 +24,19 @@ const ListItemStyle = styled((props) => (
 ))(({ theme }) => ({
   ...theme.typography.body2,
   height: 48,
-  position: 'relative',
-  textTransform: 'capitalize',
+  position: "relative",
+  textTransform: "capitalize",
   paddingLeft: theme.spacing(5),
   paddingRight: theme.spacing(2.5),
   color: theme.palette.text.secondary,
-  '&:before': {
+  "&:before": {
     top: 0,
     right: 0,
     width: 3,
     bottom: 0,
     content: "''",
-    display: 'none',
-    position: 'absolute',
+    display: "none",
+    position: "absolute",
     borderTopLeftRadius: 4,
     borderBottomLeftRadius: 4,
     backgroundColor: theme.palette.primary.main,
@@ -46,9 +46,9 @@ const ListItemStyle = styled((props) => (
 const ListItemIconStyle = styled(ListItemIcon)({
   width: 22,
   height: 22,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 });
 
 // ----------------------------------------------------------------------
@@ -69,18 +69,18 @@ function NavItem({ item, active }) {
   };
 
   const activeRootStyle = {
-    color: 'primary.main',
-    fontWeight: 'fontWeightMedium',
+    color: "primary.main",
+    fontWeight: "fontWeightMedium",
     bgcolor: alpha(
       theme.palette.primary.main,
-      theme.palette.action.selectedOpacity,
+      theme.palette.action.selectedOpacity
     ),
-    '&:before': { display: 'block' },
+    "&:before": { display: "block" },
   };
 
   const activeSubStyle = {
-    color: 'text.primary',
-    fontWeight: 'fontWeightMedium',
+    color: "text.primary",
+    fontWeight: "fontWeightMedium",
   };
 
   if (children) {
@@ -102,14 +102,17 @@ function NavItem({ item, active }) {
           />
         </ListItemStyle>
 
-        <Collapse in={open} timeout='auto' unmountOnExit>
-          <List component='div' disablePadding>
-            {children.map((item) => {
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <List component="div" disablePadding>
+            {/* eslint-disable-next-line no-shadow */}
+            {children.map((item, index) => {
+              // eslint-disable-next-line no-shadow
               const { title, path } = item;
               const isActiveSub = active(path);
 
               return (
-                <NextLink href={path}>
+                // eslint-disable-next-line react/no-array-index-key
+                <NextLink key={index} href={path}>
                   <ListItemStyle
                     key={title}
                     sx={{
@@ -118,20 +121,21 @@ function NavItem({ item, active }) {
                   >
                     <ListItemIconStyle>
                       <Box
-                        component='span'
+                        component="span"
                         sx={{
                           width: 4,
                           height: 4,
-                          display: 'flex',
-                          borderRadius: '50%',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          bgcolor: 'text.disabled',
+                          display: "flex",
+                          borderRadius: "50%",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          bgcolor: "text.disabled",
+                          // eslint-disable-next-line no-shadow
                           transition: (theme) =>
-                            theme.transitions.create('transform'),
+                            theme.transitions.create("transform"),
                           ...(isActiveSub && {
-                            transform: 'scale(2)',
-                            bgcolor: 'primary.main',
+                            transform: "scale(2)",
+                            bgcolor: "primary.main",
                           }),
                         }}
                       />
@@ -167,15 +171,15 @@ NavSection.propTypes = {
 };
 
 export default function NavSection({ navConfig, ...other }) {
-  const { pathname } = useRouter();
-  const match = (path) =>
-    path ? !!matchPath({ path, end: false }, pathname) : false;
+  // const { pathname } = useRouter();
+  // const match = (path) =>
+  //   path ? !!matchPath({ path, end: false }, pathname) : false;
 
   return (
     <Box {...other}>
       <List disablePadding>
         {navConfig.map((item) => (
-          <NavItem key={item.title} item={item} active={true} />
+          <NavItem key={item.title} item={item} active />
         ))}
       </List>
     </Box>

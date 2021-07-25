@@ -1,28 +1,29 @@
-import PropTypes from 'prop-types';
-import { Link as RouterLink } from 'react-router-dom';
+import PropTypes from "prop-types";
+import NextLink from "next/link";
+
 // material
-import { Box, Card, Link, Typography, Stack } from '@material-ui/core';
-import { experimentalStyled as styled } from '@material-ui/core/styles';
+import { Box, Card, Link, Typography, Stack } from "@material-ui/core";
+import { experimentalStyled as styled } from "@material-ui/core/styles";
 // utils
-import { fCurrency } from '../../../utils/formatNumber';
+import { fCurrency } from "../../../utils/formatNumber";
 //
-import Label from '../../Label';
-import ColorPreview from '../../ColorPreview';
+import Label from "../../Label";
+import ColorPreview from "../../ColorPreview";
 
 // ----------------------------------------------------------------------
 
-const ProductImgStyle = styled('img')({
+const ProductImgStyle = styled("img")({
   top: 0,
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-  position: 'absolute'
+  width: "100%",
+  height: "100%",
+  objectFit: "cover",
+  position: "absolute",
 });
 
 // ----------------------------------------------------------------------
 
 ShopProductCard.propTypes = {
-  product: PropTypes.object
+  product: PropTypes.object,
 };
 
 export default function ShopProductCard({ product }) {
@@ -30,17 +31,17 @@ export default function ShopProductCard({ product }) {
 
   return (
     <Card>
-      <Box sx={{ pt: '100%', position: 'relative' }}>
+      <Box sx={{ pt: "100%", position: "relative" }}>
         {status && (
           <Label
             variant="filled"
-            color={(status === 'sale' && 'error') || 'info'}
+            color={(status === "sale" && "error") || "info"}
             sx={{
               zIndex: 9,
               top: 16,
               right: 16,
-              position: 'absolute',
-              textTransform: 'uppercase'
+              position: "absolute",
+              textTransform: "uppercase",
             }}
           >
             {status}
@@ -50,21 +51,26 @@ export default function ShopProductCard({ product }) {
       </Box>
 
       <Stack spacing={2} sx={{ p: 3 }}>
-        <Link to="#" color="inherit" underline="hover" component={RouterLink}>
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <Link href="#" color="inherit" underline="hover" component={NextLink}>
           <Typography variant="subtitle2" noWrap>
             {name}
           </Typography>
         </Link>
 
-        <Stack direction="row" alignItems="center" justifyContent="space-between">
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+        >
           <ColorPreview colors={colors} />
           <Typography variant="subtitle1">
             <Typography
               component="span"
               variant="body1"
               sx={{
-                color: 'text.disabled',
-                textDecoration: 'line-through'
+                color: "text.disabled",
+                textDecoration: "line-through",
               }}
             >
               {priceSale && fCurrency(priceSale)}

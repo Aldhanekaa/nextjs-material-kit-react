@@ -1,12 +1,13 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 // material
-import { Grid } from '@material-ui/core';
-import ShopProductCard from './ProductCard';
+import { Grid } from "@material-ui/core";
+import ShopProductCard from "./ProductCard";
 
 // ----------------------------------------------------------------------
 
 ProductList.propTypes = {
-  products: PropTypes.array.isRequired
+  // eslint-disable-next-line react/forbid-prop-types
+  products: PropTypes.array.isRequired,
 };
 
 export default function ProductList({ products, ...other }) {

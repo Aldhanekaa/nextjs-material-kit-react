@@ -8,12 +8,12 @@ import ThemeConfig from "../theme";
 import ScrollToTop from "../components/ScrollToTop";
 import DashboardLayout from "../layouts/dashboard";
 
-const loadLocaleData = (locale: string) => {
-  switch (locale) {
-    default:
-      return import("../locales/en/index.json");
-  }
-};
+// const loadLocaleData = (locale: string) => {
+//   switch (locale) {
+//     default:
+//       return import("../locales/en/index.json");
+//   }
+// };
 
 function MyApp({ Component, pageProps }: AppProps) {
   React.useEffect(() => {
