@@ -14,14 +14,12 @@
   },
   "plugins": ["react", "@typescript-eslint", "@next/next"],
   "rules": {
-    "react/jsx-filename-extension": [
-      1,
-      { "extensions": [".js", ".jsx", ".tsx"] },
-      {
-        "html": "ignore",
-        "custom": "ignore",
-        "explicitSpread": "ignore"
-      }
-    ]
+    "react/jsx-filename-extension": {
+      "extensions": [".js", ".jsx", ".tsx"],
+
+      "html": "ignore",
+      "custom": "ignore",
+      "explicitSpread": "ignore"
+    }
   }
 }
