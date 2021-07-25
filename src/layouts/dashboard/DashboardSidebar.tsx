@@ -50,6 +50,7 @@ DashboardSidebar.propTypes = {
   onCloseSidebar: PropTypes.func,
 };
 
+// @ts-ignore
 export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useRouter();
 
