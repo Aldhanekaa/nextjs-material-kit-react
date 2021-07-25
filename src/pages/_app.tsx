@@ -1,17 +1,17 @@
-import '../styles/globals.css';
-import React from 'react';
-import type { AppProps } from 'next/app';
+import "../styles/globals.css";
+import React from "react";
+import type { AppProps } from "next/app";
 
 // theme
-import ThemeConfig from '../theme';
+import ThemeConfig from "../theme";
 // components
-import ScrollToTop from '../components/ScrollToTop';
-import DashboardLayout from '../layouts/dashboard';
+import ScrollToTop from "../components/ScrollToTop";
+import DashboardLayout from "../layouts/dashboard";
 
 const loadLocaleData = (locale: string) => {
   switch (locale) {
     default:
-      return import('../locales/en/index.json');
+      return import("../locales/en/index.json");
   }
 };
 

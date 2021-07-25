@@ -1,9 +1,10 @@
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
+import NextLink from "next/link";
 
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import PropTypes from "prop-types";
+import { useEffect } from "react";
 // material
-import { styled } from '@material-ui/core/styles';
+import { styled } from "@material-ui/core/styles";
 import {
   Box,
   Link,
@@ -12,36 +13,33 @@ import {
   Typography,
   Avatar,
   Stack,
-} from '@material-ui/core';
+} from "@material-ui/core";
 
 // components
-import Logo from '../../components/Logo';
-import Scrollbar from '../../components/Scrollbar';
-import NavSection from '../../components/NavSection';
-import { MHidden } from '../../components/@material-extend';
+import Logo from "../../components/Logo";
+import Scrollbar from "../../components/Scrollbar";
+import NavSection from "../../components/NavSection";
+import { MHidden } from "../../components/@material-extend";
 //
-import sidebarConfig from './SidebarConfig';
-import account from '../../_mocks_/account';
+import sidebarConfig from "./SidebarConfig";
+import account from "../../_mocks_/account";
 
 // ----------------------------------------------------------------------
 
 const DRAWER_WIDTH = 280;
 
-const RootStyle = styled('div')(({ theme }) => {
-  // theme.breakpoints
-  return {
-    [theme.breakpoints.up('lg')]: {
-      flexShrink: 0,
-      width: DRAWER_WIDTH,
-    },
-  };
-});
+const RootStyle = styled("div")(({ theme }) => ({
+  [theme.breakpoints.up("lg")]: {
+    flexShrink: 0,
+    width: DRAWER_WIDTH,
+  },
+}));
 
-const AccountStyle = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
+const AccountStyle = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
   padding: theme.spacing(2, 2.5),
-  borderRadius: theme.shape.borderRadiusSm,
+  borderRadius: theme.shape.borderRadius,
   backgroundColor: theme.palette.grey[200],
 }));
 
@@ -65,30 +63,30 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const renderContent = (
     <Scrollbar
       sx={{
-        height: '100%',
-        '& .simplebar-content': {
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
+        height: "100%",
+        "& .simplebar-content": {
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
         },
       }}
     >
       <Box sx={{ px: 2.5, py: 3 }}>
-        <Box sx={{ display: 'inline-flex' }}>
+        <Box sx={{ display: "inline-flex" }}>
           <Logo />
         </Box>
       </Box>
 
       <Box sx={{ mb: 5, mx: 2.5 }}>
-        <Link underline='none' href='#'>
+        <Link underline="none" component={NextLink} href="#">
           <AccountStyle>
-            <Avatar src={account.photoURL} alt='photoURL' />
+            <Avatar src={account.photoURL} alt="photoURL" />
             <Box sx={{ ml: 2 }}>
-              <Typography variant='subtitle2' sx={{ color: 'text.primary' }}>
+              <Typography variant="subtitle2" sx={{ color: "text.primary" }}>
                 {account.displayName}
               </Typography>
-              <Typography variant='body2' sx={{ color: 'text.secondary' }}>
-                {account.role}
+              <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                Admin
               </Typography>
             </Box>
           </AccountStyle>
@@ -101,36 +99,36 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
       <Box sx={{ px: 2.5, pb: 3, mt: 10 }}>
         <Stack
-          alignItems='center'
+          alignItems="center"
           spacing={3}
           sx={{
             p: 2.5,
             pt: 5,
             borderRadius: 2,
-            position: 'relative',
-            bgcolor: 'grey.200',
+            position: "relative",
+            bgcolor: "grey.200",
           }}
         >
           <Box
-            component='img'
-            src='/static/illustrations/illustration_rocket.png'
-            sx={{ width: 100, position: 'absolute', top: -50 }}
+            component="img"
+            src="/static/illustrations/illustration_avatar.png"
+            sx={{ width: 100, position: "absolute", top: -50 }}
           />
 
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography gutterBottom variant='h6'>
+          <Box sx={{ textAlign: "center" }}>
+            <Typography gutterBottom variant="h6">
               Get more?
             </Typography>
-            <Typography variant='body2' sx={{ color: 'text.secondary' }}>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
               From only $69
             </Typography>
           </Box>
 
           <Button
             fullWidth
-            href='https://material-ui.com/store/items/minimal-dashboard/'
-            target='_blank'
-            variant='contained'
+            href="https://material-ui.com/store/items/minimal-dashboard/"
+            target="_blank"
+            variant="contained"
           >
             Upgrade to Pro
           </Button>
@@ -141,7 +139,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
 
   return (
     <RootStyle>
-      <MHidden width='lgUp'>
+      <MHidden width="lgUp">
         <Drawer
           open={isOpenSidebar}
           onClose={onCloseSidebar}
@@ -153,14 +151,14 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
         </Drawer>
       </MHidden>
 
-      <MHidden width='lgDown'>
+      <MHidden width="lgDown">
         <Drawer
           open
-          variant='persistent'
+          variant="persistent"
           PaperProps={{
             sx: {
               width: DRAWER_WIDTH,
-              bgcolor: 'background.default',
+              bgcolor: "background.default",
             },
           }}
         >

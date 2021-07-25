@@ -1,27 +1,21 @@
-import PropTypes from 'prop-types';
-import { useMemo } from 'react';
+import PropTypes from "prop-types";
 // material
-import { CssBaseline } from '@material-ui/core';
+import { CssBaseline } from "@material-ui/core";
 import {
   ThemeProvider,
-  createStyles,
   StyledEngineProvider as StylesProvider,
   createTheme,
-} from '@material-ui/core/styles';
+} from "@material-ui/core/styles";
 //
-import shape from './shape';
-import palette from './palette';
-import typography from './typography';
-import breakpoints from './breakpoints';
-import GlobalStyles from './globalStyles';
-import componentsOverride from './overrides';
-import shadows, { customShadows } from './shadows';
+import shape from "./shape";
+import palette from "./palette";
+import typography from "./typography";
+import breakpoints from "./breakpoints";
+import GlobalStyles from "./globalStyles";
+import componentsOverride from "./overrides";
+import shadows, { customShadows } from "./shadows";
 
 // ----------------------------------------------------------------------
-
-ThemeConfig.propTypes = {
-  children: PropTypes.node,
-};
 
 export default function ThemeConfig({ children }) {
   // const themeOptions = useMemo(
@@ -55,3 +49,8 @@ export default function ThemeConfig({ children }) {
     </StylesProvider>
   );
 }
+
+ThemeConfig.propTypes = {
+  // eslint-disable-next-line react/require-default-props
+  children: PropTypes.node,
+};

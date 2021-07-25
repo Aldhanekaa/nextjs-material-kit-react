@@ -1,11 +1,11 @@
-import NextLink from 'next/link';
-import { Icon } from '@iconify/react';
-import { useRef, useState } from 'react';
-import homeFill from '@iconify/icons-eva/home-fill';
-import personFill from '@iconify/icons-eva/person-fill';
-import settings2Fill from '@iconify/icons-eva/settings-2-fill';
+import NextLink from "next/link";
+import { Icon } from "@iconify/react";
+import { useRef, useState } from "react";
+import homeFill from "@iconify/icons-eva/home-fill";
+import personFill from "@iconify/icons-eva/person-fill";
+import settings2Fill from "@iconify/icons-eva/settings-2-fill";
 // material
-import { alpha } from '@material-ui/core/styles';
+import { alpha } from "@material-ui/core/styles";
 import {
   Button,
   Box,
@@ -14,29 +14,29 @@ import {
   Typography,
   Avatar,
   IconButton,
-} from '@material-ui/core';
+} from "@material-ui/core";
 // components
-import MenuPopover from '../../components/MenuPopover';
+import MenuPopover from "../../components/MenuPopover";
 //
-import account from '../../_mocks_/account';
+import account from "../../_mocks_/account";
 
 // ----------------------------------------------------------------------
 
 const MENU_OPTIONS = [
   {
-    label: 'Home',
+    label: "Home",
     icon: homeFill,
-    linkTo: '/',
+    linkTo: "/",
   },
   {
-    label: 'Profile',
+    label: "Profile",
     icon: personFill,
-    linkTo: '#',
+    linkTo: "#",
   },
   {
-    label: 'Settings',
+    label: "Settings",
     icon: settings2Fill,
-    linkTo: '#',
+    linkTo: "#",
   },
 ];
 
@@ -63,19 +63,19 @@ export default function AccountPopover() {
           width: 44,
           height: 44,
           ...(open && {
-            '&:before': {
+            "&:before": {
               zIndex: 1,
               content: "''",
-              width: '100%',
-              height: '100%',
-              borderRadius: '50%',
-              position: 'absolute',
+              width: "100%",
+              height: "100%",
+              borderRadius: "50%",
+              position: "absolute",
               bgcolor: (theme) => alpha(theme.palette.grey[900], 0.72),
             },
           }),
         }}
       >
-        <Avatar src={account.photoURL} alt='photoURL' />
+        <Avatar src={account.photoURL} alt="photoURL" />
       </IconButton>
 
       <MenuPopover
@@ -85,10 +85,10 @@ export default function AccountPopover() {
         sx={{ width: 220 }}
       >
         <Box sx={{ my: 1.5, px: 2.5 }}>
-          <Typography variant='subtitle1' noWrap>
+          <Typography variant="subtitle1" noWrap>
             {account.displayName}
           </Typography>
-          <Typography variant='body2' sx={{ color: 'text.secondary' }} noWrap>
+          <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
             {account.email}
           </Typography>
         </Box>
@@ -100,7 +100,7 @@ export default function AccountPopover() {
             <MenuItem
               key={option.label}
               onClick={handleClose}
-              sx={{ typography: 'body2', py: 1, px: 2.5 }}
+              sx={{ typography: "body2", py: 1, px: 2.5 }}
             >
               <Box
                 component={Icon}
@@ -118,7 +118,7 @@ export default function AccountPopover() {
         ))}
 
         <Box sx={{ p: 2, pt: 1.5 }}>
-          <Button fullWidth color='inherit' variant='outlined'>
+          <Button fullWidth color="inherit" variant="outlined">
             Logout
           </Button>
         </Box>
